@@ -1,18 +1,7 @@
-doctype html
-html(lang="en")
-	head
-		meta(charset='utf-8')
-		meta(http-equiv='X-UA-Compatible', content='IE=edge')
-		meta(name='viewport', content='width=device-width, initial-scale=1.0')
-		meta(name='description', content='Kanban Web Core')
-		link(rel="stylesheet", href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css")
-		link(rel="stylesheet", href="/css/main.css")
-		title= title
-	body
-		div.content
-			ul(id="columnsContainer", class="columns")
-		script(src="//code.jquery.com/jquery-1.10.2.js")
-		script(src="//code.jquery.com/ui/1.11.4/jquery-ui.js")
-		script(src="/js/board.js")
+extends ./layout
 
-
+block content
+	ul(id="columnsContainer", class="columns")
+	
+block javascript
+	script(src="/js/board.js")
