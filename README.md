@@ -2,15 +2,15 @@
 
 ---
 
-Currently be developed and tested on a Mac. YMMV with the following instructions.
+Currently Mac specific. YMMV with the following instruction overview.
 
 ## Installation
 
-You may not need to perform all the steps below. While not necessary, I use [homebrew](http://brew.sh/) package manager.
+You may not need to perform all the steps below. I use [homebrew](http://brew.sh/) package manager.
 
 ```bash
 
-# brew 
+# homebrew 
 $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 $ brew update
 
