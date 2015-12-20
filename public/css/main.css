@@ -51,3 +51,19 @@ ul.columns li.column p.columnName {
 	color: snow;
 	border-bottom: 2px solid snow;	
 }
+
+/* nav */
+
+ul.nav {
+	margin: 0 0 1em 0;
+	/* http://www.w3schools.com/css/css_float.asp */
+	/* http://www.w3schools.com/css/tryit.asp?filename=trycss_layout_float_ex */
+	overflow: auto;
+	padding: 0;
+}
+
+ul.nav li.link {
+	float: left;
+	list-style: none;
+	margin-right: 1em;
+}

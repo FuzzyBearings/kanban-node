@@ -19,6 +19,11 @@ router.get('/sync/:versionNumber', function(req, res, next) {
 	// sendLater(res, versionNumber);
 });
 
+// router.post('/sync/:versionNumber', function(req, res, next) {
+// 	var versionNumber = Number(req.params.versionNumber);
+//
+// });
+
 function sendLater(res, versionNumber) {
 	res.send({ 
 		fromVersionNumber: versionNumber,

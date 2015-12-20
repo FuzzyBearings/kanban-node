@@ -14,4 +14,23 @@ router.get('/:boardId', function(req, res, next) {
 	});
 });
 
+router.post('/', function(req, res, next) {
+	var boardName = req.body.boardName;
+	
+	var sortOrder = 0.0;
+	var projectId = 123;
+	var properties = { "name" : docName, "sortOrder" : sortOrder, "projectId" : projectId };
+
+	var docsTable = db.get('boards');
+	docsTable.insert(properties, function(err, doc) {
+		if (!err && doc) {
+			res.status(500).send({ message: "There was a problem adding that board to the database." });
+			// sharedRoutes.renderDocumentPageBoard(req, res, doc._id);
+		}
+		else {
+			res.status(500).send({ message: "There was a problem adding that board to the database." });
+		}
+	});
+});
+
 module.exports = router;
