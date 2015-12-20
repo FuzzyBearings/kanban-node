@@ -53,6 +53,13 @@ routes = require('./routes/rest/users');
 app.use('/kanban/users', routes);
 
 ////
+// LONG POLLING
+//
+routes = require('./routes/longpoll/board');
+app.use('/kanban/longpoll/board', routes);
+
+
+////
 // CATCHALL ROUTES
 ////
 routes = require('./routes/index');

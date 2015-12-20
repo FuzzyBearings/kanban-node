@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
 	var url = "/kanban/boards/sync/123";
+	url = "/kanban/longpoll/board/sync/123"
 	jQuery.ajax(url, {
 		method: 'GET',
 		headers: { "PRIVATE-TOKEN": "anything" },
