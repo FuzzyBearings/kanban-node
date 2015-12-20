@@ -1,4 +1,13 @@
 extends ./layout
 
 block content
-	h1 Admin
+	div.titlebarContainer
+		ul.titlebar
+			li.item
+				span.title All Boards
+	
+	div.mainContainer
+		h2 Boards
+		div.boardForm
+			input(type='text', placeholder='Board Name', name='boardName')
+			input(type='button', value='Add Board')

@@ -1,69 +1,91 @@
 body {
+  color: #666;
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
-  color: #00B7FF;
-}
+  color: #aa0000; }
 
+/* nav */
+ul.nav {
+  margin: 0 0 1em 0;
+  /* http://www.w3schools.com/css/css_float.asp */
+  /* http://www.w3schools.com/css/tryit.asp?filename=trycss_layout_float_ex */
+  overflow: auto;
+  padding: 0; }
+
+ul.nav li.link {
+  float: left;
+  list-style: none;
+  margin-right: 1em; }
+
+/* titlebar */
+div.mainContainer, ul.titlebar {
+  border: 1px solid #666;
+  border-radius: 12px;
+  background-color: #f7f3f7;
+  margin: 1em 0;
+  overflow: auto;
+  padding: 1em; }
+
+ul.titlebar li.item {
+  color: #666;
+  list-style: none;
+  font-size: 2em; }
+
+span.title {
+  font-size: 4em; }
+
+/* forms */
+input[type=text] {
+  border: 1px solid #aa0000;
+  border-radius: 3px;
+  color: #aa0000;
+  font-family: courier;
+  font-size: 1.5em;
+  padding: 4px; }
+
+input[type=button] {
+  background-color: #aa0000;
+  border: solid 1px #aa0000;
+  border-radius: 3px;
+  color: snow;
+  font-size: 1em;
+  padding: 4px; }
+
+/* boards */
 ul.columns,
 li.column {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
+  list-style: none;
+  margin: 0;
+  padding: 0; }
 
 li.column {
-	background-color: #e1e1e1;
-	border-radius: 4px;
-	float: left;
-	margin-right: 4px;
-	padding: 4px 8px;
-	width: 15em;
-}
+  background-color: #e1e1e1;
+  border-radius: 4px;
+  float: left;
+  margin-right: 4px;
+  padding: 4px 8px;
+  width: 15em; }
 
 dl.card,
 dl.card dt.card,
 dl.card dd.card {
-	margin: 0;
-	padding: 0;
-}
+  margin: 0;
+  padding: 0; }
 
 dl.card {
-	background-color: snow;
-	border-radius: 3px;
-	color: gray;
-	font-size: 9pt;
-	margin: 8px;
-	padding: 12px;
-}
-
-dt.card {
-}
+  background-color: snow;
+  border-radius: 3px;
+  color: gray;
+  font-size: 9pt;
+  margin: 8px;
+  padding: 12px; }
 
 dd.card {
-	border-bottom: 1px dotted #232323;
-	font-weight: bold;
-}
+  border-bottom: 1px dotted #232323;
+  font-weight: bold; }
 
 ul.columns li.column p.columnName {
-	color: snow;
-	border-bottom: 2px solid snow;	
-}
-
-/* nav */
-
-ul.nav {
-	margin: 0 0 1em 0;
-	/* http://www.w3schools.com/css/css_float.asp */
-	/* http://www.w3schools.com/css/tryit.asp?filename=trycss_layout_float_ex */
-	overflow: auto;
-	padding: 0;
-}
-
-ul.nav li.link {
-	float: left;
-	list-style: none;
-	margin-right: 1em;
-}
+  color: snow;
+  border-bottom: 2px solid snow; }

@@ -1,11 +1,20 @@
 var express = require('express');
+var sassMiddleware = require('node-sass-middleware');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+
+////
+// mongo
+////
 var mongo = require('mongodb');
 var monk = require('monk');
+
+////
+// express
+////
 var app = express();
 
 ////
@@ -30,8 +39,19 @@ app.set('view engine', 'jade');
 ////
 // USE
 ////
+
+// favicon
 // uncomment after placing your favicon in /public
 // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
+// sass - https://github.com/sass/node-sass-middleware
+app.use(sassMiddleware({
+    src: __dirname + '/sass',
+    dest: path.join(__dirname, 'public/css'),
+	prefix: '/css'
+}));
+
+// other
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

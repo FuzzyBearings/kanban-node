@@ -25,6 +25,9 @@ $ brew upgrade node
 $ npm install -g express-generator
 $ npm install -g node-inspector
 
+# sass
+$ npm install node-sass-middleware
+
 ```
 
 ```bash
