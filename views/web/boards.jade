@@ -9,5 +9,9 @@ block content
 	div.mainContainer
 		h2 Boards
 		div.boardForm
-			input(type='text', placeholder='Board Name', name='boardName')
-			input(type='button', value='Add Board')
+			input#addBoardNameTextInput(type='text', placeholder='Board Name', name='boardName')
+			input#addBoardButton(type='button', value='Add Board')
+
+block javascript
+	script(src="/js/common.js")
+	script(src="/js/boards.js")

@@ -1,5 +1,6 @@
 $(document).ready(function(){
-
+	
+	// automatically fetch board
 	var url = "/kanban/api/v1/longpoll/board/sync/123"
 	jQuery.ajax(url, {
 		method: 'GET',
