@@ -62,23 +62,25 @@ app.use(express.static(path.join(__dirname, 'public')));
 // WEB ROUTES
 ////
 var routes = require('./routes/web/board');
-app.use('/kanban/web/board', routes);
+app.use('/web/board', routes);
 routes = require('./routes/web/boards');
-app.use('/kanban/web/boards', routes);
+app.use('/web/boards', routes);
 
 ////
 // REST ROUTES
 ////
 routes = require('./routes/rest/boards');
-app.use('/kanban/api/v1/boards', routes);
+app.use('/api/v1/boards', routes);
 routes = require('./routes/rest/users');
-app.use('/kanban/api/v1/users', routes);
+app.use('/api/v1/users', routes);
 
 ////
 // LONG POLLING
 //
 routes = require('./routes/longpoll/board');
-app.use('/kanban/api/v1/longpoll/board', routes);
+app.use('/api/v1/longpoll/board', routes);
+routes = require('./routes/longpoll/boards');
+app.use('/api/v1/longpoll/boards', routes);
 
 
 ////

@@ -1,12 +1,13 @@
 function Common() {
-}
-
-Common.prototype.getElementById = function(elementId) {
-	return document.getElementById(elementId);
-}
-
-Common.prototype.sanitizeAlphanumeric = function(value) {
-	return value;
+	
+	this.getElementById = function(elementId) {
+		return document.getElementById(elementId);
+	}
+	
+	this.sanitizeAlphanumeric = function(value) {
+		return value;
+	}
+	
 }
 
 var common = new Common();

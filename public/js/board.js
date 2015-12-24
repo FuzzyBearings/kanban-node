@@ -1,14 +1,14 @@
 $(document).ready(function(){
 	
 	// automatically fetch board
-	var url = "/kanban/api/v1/longpoll/board/sync/123"
+	var url = "/api/v1/longpoll/board/sync/123"
 	jQuery.ajax(url, {
 		method: 'GET',
 		headers: { "PRIVATE-TOKEN": "anything" },
 	}).success(function(data, textStatus, jqXHR) {
 		var columnsData = data.columns;
 		var columnsContainer = document.getElementById("columnsContainer");
-		for (var i = 0; i < 6; ++i) {
+		for (var i = 0; i < columnsData.length; ++i) {
 			var columnData = columnsData[i];
 			
 			// li
