@@ -10,11 +10,12 @@ html(lang="en")
 		link(rel="stylesheet", href="/css/styles.css")
 		title= title
 	body
-		ul.nav
-			li.link
-				a(href="/web/boards") All Boards
-			li.link
-				a(href="/web/board/123") Sync Board 123
+		div.topContainer
+			ul.quickLinks
+				li.link
+					a(href="/web/boards") All Boards
+				li.link
+					a(href="/web/board/123") Sync Board 123
 		div.content
 			block content
 		script(src="//code.jquery.com/jquery-1.10.2.js")

@@ -1,0 +1,46 @@
+/* board */
+
+ul.columns,
+li.column {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+li.column {
+	background-color: #e1e1e1;
+	border-radius: 4px;
+	float: left;
+	margin-right: 4px;
+	padding: 4px 8px;
+	width: 15em;
+}
+
+dl.card,
+dl.card dt.card,
+dl.card dd.card {
+	margin: 0;
+	padding: 0;
+}
+
+dl.card {
+	background-color: snow;
+	border-radius: 3px;
+	color: gray;
+	font-size: 9pt;
+	margin: 8px;
+	padding: 12px;
+}
+
+dt.card {
+}
+
+dd.card {
+	border-bottom: 1px dotted #232323;
+	font-weight: bold;
+}
+
+ul.columns li.column p.columnName {
+	color: snow;
+	border-bottom: 2px solid snow;	
+}

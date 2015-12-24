@@ -2,16 +2,23 @@ extends ./layout
 
 block content
 	div.titlebarContainer
+		ul.crumbTrail
+			li.firstCrumb
+				a(href="") Asynchrony
+			li.crumb
+				a(href="") Ameren
+			li.crumb
+				a(href="") eWP
 		ul.titlebar
 			li.item
 				span.title All Boards
 	
 	div.mainContainer
 		h2 Boards
-		ul#boardsContainer(class="boardsList")
 		div.boardForm
-			input#addBoardNameTextInput(type='text', placeholder='Board Name', name='boardName')
+			input#addBoardNameTextInput(type='text', size="40", placeholder='Board Name', name='boardName')
 			input#addBoardButton(type='button', value='Add Board')
+		ul#boardsContainer(class="boardsList")
 
 block javascript
 	script(src="/js/common.js")

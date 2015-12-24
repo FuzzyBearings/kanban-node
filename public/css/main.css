@@ -1,3 +1,4 @@
+/* base */
 body {
   color: #666;
   padding: 50px;
@@ -6,6 +7,84 @@ body {
 a {
   color: #aa0000; }
 
+/* layout */
+/* topContainer */
+div.topContainer {
+  overflow: auto; }
+
+ul.quickLinks {
+  float: right;
+  margin: 0 0 1em 0;
+  /* http://www.w3schools.com/css/css_float.asp */
+  /* http://www.w3schools.com/css/tryit.asp?filename=trycss_layout_float_ex */
+  overflow: auto;
+  padding: 0; }
+
+ul.quickLinks li.link {
+  float: left;
+  list-style: none;
+  margin-right: 1em; }
+
+/* crumbTrail */
+ul.crumbTrail {
+  margin: 0 0 1em 0;
+  /* http://www.w3schools.com/css/css_float.asp */
+  /* http://www.w3schools.com/css/tryit.asp?filename=trycss_layout_float_ex */
+  overflow: auto;
+  padding: 0; }
+
+ul.crumbTrail li.firstCrumb,
+ul.crumbTrail li.crumb {
+  float: left;
+  margin-right: 1em;
+  padding-left: .5em;
+  margin-left: 1em; }
+
+ul.crumbTrail li.firstCrumb {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0; }
+
+/* titlebar */
+div.mainContainer,
+div.titlebarContainer {
+  border: 1px solid #666;
+  border-radius: 12px;
+  background-color: #f7f3f7;
+  margin: 0 0 1.5em 0;
+  overflow: auto;
+  padding: 1em; }
+
+ul.titlebar {
+  margin: 0;
+  padding: 0; }
+
+ul.titlebar li.item {
+  color: #666;
+  list-style: none;
+  font-size: 2em; }
+
+span.title {
+  font-size: 4em; }
+
+/* forms */
+input[type=text] {
+  border: 1px solid #888;
+  border-radius: 3px;
+  color: #666;
+  font-family: courier;
+  font-size: 1.0em;
+  padding: 4px; }
+
+input[type=button] {
+  background-color: #888;
+  border: solid 1px #888;
+  border-radius: 3px;
+  color: snow;
+  font-size: .8em;
+  padding: 4px; }
+
+/* boards */
 /* nav */
 ul.nav {
   margin: 0 0 1em 0;
@@ -19,41 +98,7 @@ ul.nav li.link {
   list-style: none;
   margin-right: 1em; }
 
-/* titlebar */
-div.mainContainer, ul.titlebar {
-  border: 1px solid #666;
-  border-radius: 12px;
-  background-color: #f7f3f7;
-  margin: 1em 0;
-  overflow: auto;
-  padding: 1em; }
-
-ul.titlebar li.item {
-  color: #666;
-  list-style: none;
-  font-size: 2em; }
-
-span.title {
-  font-size: 4em; }
-
-/* forms */
-input[type=text] {
-  border: 1px solid #aa0000;
-  border-radius: 3px;
-  color: #aa0000;
-  font-family: courier;
-  font-size: 1.5em;
-  padding: 4px; }
-
-input[type=button] {
-  background-color: #aa0000;
-  border: solid 1px #aa0000;
-  border-radius: 3px;
-  color: snow;
-  font-size: 1em;
-  padding: 4px; }
-
-/* boards */
+/* board */
 ul.columns,
 li.column {
   list-style: none;
