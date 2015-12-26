@@ -81,12 +81,12 @@ app.use('/api/v1/users', routes);
 ////
 // SYNC / LONG POLLING
 //
-routes = require('./routes/sync/board');
-app.use('/sync/v1/board', routes);
-routes = require('./routes/sync/boards');
-app.use('/sync/v1/boards', routes);
-routes = require('./routes/sync/families');
-app.use('/sync/v1/families', routes);
+// routes = require('./routes/sync/board');
+// app.use('/sync/v1/board', routes);
+// routes = require('./routes/sync/boards');
+// app.use('/sync/v1/boards', routes);
+routes = require('./routes/sync/events');
+app.use('/sync/v1/events', routes);
 
 
 ////

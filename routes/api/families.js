@@ -2,7 +2,26 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
-	res.send({ retval: 0, message: "Success!" });
+	var db = req.db;
+	var docsTable = db.get('families');
+	var currentVersionNumber = 2.0;
+	docsTable.find({ }, { sort: { "sortOrder" : 1, "name" : 1 }}, function(err, families) {
+		if (!err) {
+			res.send({
+				currentVersionNumber: currentVersionNumber,
+				families: families
+				// [
+				// 	{ id: 123, name: "Asynchrony" },
+				// 	{ id: 456, name: "Effective Programming" },
+				// 	{ id: 789, name: "Fuzzy Bearings" },
+				// 	{ id: 147, name: "Music" }
+				// ]
+			});			
+		} else {
+			res.status(500).send({ message: "There was a problem adding fetching families from the database." });
+		}
+	});
+	// res.send({ retval: 0, message: "Success!" });
 });
 
 // router.get('/:familyId', function(req, res, next) {

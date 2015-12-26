@@ -6,7 +6,7 @@ $(document).ready(function(){
 	else if (el.attachEvent)
 	    element.attachEvent('onclick', onClickAddFamilyButton);
 	
-	var url = "/sync/v1/families/0"
+	var url = "/api/v1/families"
 	jQuery.ajax(url, {
 		method: 'GET',
 		headers: { "PRIVATE-TOKEN": "anything" },
@@ -14,7 +14,7 @@ $(document).ready(function(){
 		
 		var familiesData = data.families;
 		var familiesContainer = document.getElementById("familiesContainer");
-		console.log('success!');
+		console.log('Success fetching families.');
 
 		for (var i = 0; i < familiesData.length; ++i) {
 
@@ -35,7 +35,7 @@ $(document).ready(function(){
 		}
 
 	}).error(function(jqXHR, textStatus, errorThrown) {
-		console.log('error thrown: ' + errorThrown);
+		console.log('Error thrown fetching families: ' + errorThrown);
 	});
 
 });
