@@ -55,10 +55,9 @@ function onClickAddFamilyButton(event) {
 			method: 'POST',
 			headers: { "PRIVATE-TOKEN": "anything" },
 		}).success(function(data, textStatus, jqXHR) {
-			console.log('successful save!');
-			var columnsData = data.columns;
+			console.log('Successfully saved family!');
 		}).error(function(jqXHR, textStatus, errorThrown) {
-			console.log('error thrown: ' + errorThrown);
+			console.log('Error thrown while saving family: ' + errorThrown);
 		});	
 	}
 	// console.log('onClickAddBoardButton(event): ' + textValueS);
