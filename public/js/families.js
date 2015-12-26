@@ -34,6 +34,8 @@ $(document).ready(function(){
 			var textNode = document.createTextNode(familyData.name);
 			paragraphNode.appendChild(textNode);
 		}
+		
+		longPoll(changeset);
 
 	}).error(function(jqXHR, textStatus, errorThrown) {
 		console.log('Error thrown fetching families: ' + errorThrown);
@@ -64,4 +66,47 @@ function onClickAddFamilyButton(event) {
 	// console.log('onClickAddBoardButton(event): ' + textValueS);
 	// console.log('onClickAddBaordButton(event): ' + event);
 	// console.log('onClickAddBoardButton(event.target): ' + event.target);
+}
+
+function longPoll(changeset) {
+	var url = "/sync/v1/events/" + changeset;
+	jQuery.ajax(url, {
+		method: 'GET',
+		headers: { "PRIVATE-TOKEN": "anything" },
+	}).success(function(data, textStatus, jqXHR) {
+
+		console.log('Success fetching events.');
+		
+		var eventsData = data.events;
+		var changeset = data.changeset;
+		
+		console.log('Changeset: ' + changeset);
+
+		// var familiesContainer = document.getElementById("familiesContainer");
+		// console.log('Success fetching families - changeset: ' + changeset);
+		//
+		// for (var i = 0; i < familiesData.length; ++i) {
+		//
+		// 	// li
+		// 	var familyListItem = document.createElement("li");
+		// 	familyListItem.className = "item";
+		// 	familiesContainer.appendChild(familyListItem);
+		//
+		// 	// p
+		// 	var paragraphNode = document.createElement("p");
+		// 	paragraphNode.className = "itemName";
+		// 	familyListItem.appendChild(paragraphNode);
+		//
+		// 	// column name
+		// 	var familyData = familiesData[i];
+		// 	var textNode = document.createTextNode(familyData.name);
+		// 	paragraphNode.appendChild(textNode);
+		// }
+		
+		// longPoll(changeset);
+
+	}).error(function(jqXHR, textStatus, errorThrown) {
+		console.log('Error thrown fetching events: ' + errorThrown);
+		// longPoll(changeset);
+	});
 }
