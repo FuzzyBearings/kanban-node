@@ -13,8 +13,9 @@ $(document).ready(function(){
 	}).success(function(data, textStatus, jqXHR) {
 		
 		var familiesData = data.families;
+		var changeset = data.changeset;
 		var familiesContainer = document.getElementById("familiesContainer");
-		console.log('Success fetching families.');
+		console.log('Success fetching families - changeset: ' + changeset);
 
 		for (var i = 0; i < familiesData.length; ++i) {
 
