@@ -65,22 +65,28 @@ var routes = require('./routes/web/board');
 app.use('/web/board', routes);
 routes = require('./routes/web/boards');
 app.use('/web/boards', routes);
+routes = require('./routes/web/families');
+app.use('/web/families', routes);
 
 ////
 // REST ROUTES
 ////
-routes = require('./routes/rest/boards');
+routes = require('./routes/api/families');
+app.use('/api/v1/families', routes);
+routes = require('./routes/api/boards');
 app.use('/api/v1/boards', routes);
-routes = require('./routes/rest/users');
+routes = require('./routes/api/users');
 app.use('/api/v1/users', routes);
 
 ////
-// LONG POLLING
+// SYNC / LONG POLLING
 //
-routes = require('./routes/longpoll/board');
-app.use('/api/v1/longpoll/board', routes);
-routes = require('./routes/longpoll/boards');
-app.use('/api/v1/longpoll/boards', routes);
+routes = require('./routes/sync/board');
+app.use('/sync/v1/board', routes);
+routes = require('./routes/sync/boards');
+app.use('/sync/v1/boards', routes);
+routes = require('./routes/sync/families');
+app.use('/sync/v1/families', routes);
 
 
 ////

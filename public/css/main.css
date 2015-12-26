@@ -7,6 +7,9 @@ body {
 a {
   color: #aa0000; }
 
+span.subtext {
+  font-style: oblique; }
+
 /* layout */
 /* topContainer */
 div.topContainer {

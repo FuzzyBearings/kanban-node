@@ -1,0 +1,22 @@
+extends ./layout
+
+block content
+	div.titlebarContainer
+		ul.crumbTrail
+			li.firstCrumb
+				a(href="/web/families") Families
+		ul.titlebar
+			li.item
+				span.title All Families
+		span.subtext Families are the highest level of board grouping. Examples of families include 'Work', 'Personal', 'Hobby', etc. The existence of a family grouping level allows a user to access a wide variety of boards from a central location.
+	
+	div.mainContainer
+		h2 Families
+		div.boardForm
+			input#addFamilyNameTextInput(type='text', size="40", placeholder='Family Name', name='familyName')
+			input#addFamilyButton(type='button', value='Add Family')
+		ul#familiesContainer(class="familiesList")
+
+block javascript
+	script(src="/js/common.js")
+	script(src="/js/families.js")
