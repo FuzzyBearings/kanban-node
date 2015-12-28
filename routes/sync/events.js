@@ -1,6 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
+// CONSTANTS
+var TIMEOUT = 60 * 1000;
+var POLLING_INTERVAL = 3000;
+
 // router.get('/', function(req, res, next) {
 // 	res.send({ retval: 0, message: "Success!" });
 // });
@@ -8,13 +12,41 @@ var router = express.Router();
 router.get('/:changeset', function(req, res, next) {
 	// res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4000');
 	// res.setHeader('Access-Control-Allow-Headers', 'PRIVATE-TOKEN');
-	var changeset = Number(req.params.changeset);
+	var changeset = parseInt(req.params.changeset);
+	req.timestamp = new Date().getTime();
+	sendLater(req, res, changeset);
+});
+
+function sendLater(req, res, changeset) {
 	var db = req.db;
 	var docsTable = db.get('events');
-	docsTable.find({ changeset: { $gt: changeset } }, { sort: { sortOrder: 1 }}, function(err, events) {
-		res.send(({
-			changeset: 202
-		}));
+	console.log('find events changeset > ' + changeset);
+	docsTable.find({ changeset: { $gt: changeset } }, { sort: { changeset: 1 }}, function(err, events) {
+		var eventsCount = events.length;
+		if (eventsCount == 0) {
+			var now = new Date().getTime();
+			console.log('now: ' + now);
+			var timeDifference = now - req.timestamp;
+			console.log('time difference: ' + timeDifference);
+			if (timeDifference > TIMEOUT) {
+				res.send({
+					message: "Timing out with no changes to report.",
+					changeset: changeset 
+				});
+			} else {
+				setTimeout(function() { sendLater(req, res, changeset); }, POLLING_INTERVAL);
+			}
+		} else {
+			console.log('begin events.length: ' + eventsCount + ', events: ' + events);
+			for (var i = 0; i < eventsCount; ++i) {
+				var event = events[i];
+				console.log('event: ' + JSON.stringify(event));
+			}
+			console.log('end events');
+			res.send({
+				changeset: 202
+			});			
+		}
 		
 		// if (!err) {
 		// 	if (events.length > 0) {
@@ -38,16 +70,15 @@ router.get('/:changeset', function(req, res, next) {
 	});
 	// setTimeout(function() { sendLater(req, res, versionNumber) }, 1000);
 	// sendLater(res, versionNumber);
-});
+}
 
-function sendLater(req, res, versionNumber) {
+function sendLater2(req, res, changeset) {
 	var db = req.db;
 	var docsTable = db.get('families');
 	docsTable.find({ }, { sort: { "sortOrder" : 1, "name" : 1 }}, function(err, families) {
 		if (!err) {
 			res.send({
-				fromVersionNumber: versionNumber,
-				currentVersionNumber: versionNumber + 10,
+				changeset: changeset,
 				families: families
 				// [
 				// 	{ id: 123, name: "Asynchrony" },

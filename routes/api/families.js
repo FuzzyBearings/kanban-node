@@ -6,24 +6,29 @@ router.get('/', function(req, res, next) {
 	var eventsTable = db.get('events');
 	var event = eventsTable.findOne({ }, { sort: { changeset: -1 }}, function(err, event) {
 		if (!err) {
-			var latestChangeset = event.changeset;
-			var docsTable = db.get('families');
-			docsTable.find({ }, { sort: { "sortOrder" : 1, "name" : 1 }}, function(err, families) {
-				if (!err) {
-					res.send({
-						changeset: latestChangeset,
-						families: families
-						// [
-						// 	{ id: 123, name: "Asynchrony" },
-						// 	{ id: 456, name: "Effective Programming" },
-						// 	{ id: 789, name: "Fuzzy Bearings" },
-						// 	{ id: 147, name: "Music" }
-						// ]
-					});			
-				} else {
-					res.status(500).send({ message: "There was a problem adding fetching families from the database." });
-				}
-			});
+			if (!event) {
+				res.send({ changeset: 0, families: [] });
+			} else {
+				console.log('event: ' + event);
+				var latestChangeset = event.changeset;
+				var docsTable = db.get('families');
+				docsTable.find({ }, { sort: { "sortOrder" : 1, "name" : 1 }}, function(err, families) {
+					if (!err) {
+						res.send({
+							changeset: latestChangeset,
+							families: families
+							// [
+							// 	{ id: 123, name: "Asynchrony" },
+							// 	{ id: 456, name: "Effective Programming" },
+							// 	{ id: 789, name: "Fuzzy Bearings" },
+							// 	{ id: 147, name: "Music" }
+							// ]
+						});			
+					} else {
+						res.status(500).send({ message: "There was a problem adding fetching families from the database." });
+					}
+				});
+			}
 		} else {
 			res.status(500).send({ message: "There was a problem adding fetching events from the database." });
 		}
